@@ -1,0 +1,38 @@
+{
+  "name": "elmbridge.com",
+  "version": "1.0.0",
+  "description": "Web Server ",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon  --ignore Makefile --ext 'ejs, css, js' & npm run bwync",
+    "bwync": "browser-sync start --proxy 'localhost:6999' --files 'views, public/stylesheets'",
+    "scss": "sass --watch src/scss/main.scss public/styles/main.css",
+    "start": "node  app.js"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/micrometre/site.git"
+  },
+  "keywords": [
+    "beta_brach"
+  ],
+  "author": "micrometreuk",
+  "bugs": {
+    "url": "https://github.com/micrometre/site/issues"
+  },
+  "homepage": "https://github.com/micrometre/site#readme",
+  "devDependencies": {
+    "browser-sync": "^2.27.7",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.2",
+    "bootstrap": "^5.1.3",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2"
+  }
+}

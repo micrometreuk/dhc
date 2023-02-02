@@ -1,0 +1,150 @@
+<style>
+.fixed {
+  position: fixed;
+  will-change: transform;
+}
+
+.fixed--bottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+a {
+  color: inherit;
+}
+
+.cookie-disclaimer button {
+  background-color: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.cookie-disclaimer .button {
+  border-style: solid;
+  border-width: 0.0625em;
+  padding: 0.5em 1em;
+  position: relative;
+}
+
+.button::after {
+  background-color: inherit;
+  bottom: 0;
+  content: '';
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  will-change: opacity;
+  z-index: -1;
+}
+
+.button:focus::after,
+.button:hover::after {
+  opacity: 1;
+}
+
+/* modules/cookie-disclaimer.css */
+
+.cookie-disclaimer {
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: inherit;
+  font-size: 0.75rem;
+  opacity: 0;
+  padding: 12px;
+  padding: 0.75rem;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.5s;
+  transition: opacity 0.3s, -webkit-transform 0.5s;
+  transition: opacity 0.3s, transform 0.5s;
+  transition: opacity 0.3s, transform 0.5s, -webkit-transform 0.5s;
+}
+
+.cookie-disclaimer.is-active {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.cookie-disclaimer :first-child {
+  margin-top: 0;
+}
+
+.cookie-disclaimer :last-child {
+  margin-bottom: 0;
+}
+
+/* modules/media.css */
+
+.media {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.media-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.media-object--left {
+  margin-right: 1em;
+}
+
+.media-object--right {
+  margin-left: 1em;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+.media-body {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+
+</style>
+
+<div class="fixed fixed--bottom cookie-disclaimer js-cookie-disclaimer">
+
+    <div class="media media--center">
+
+        <div class="media-object media-object--right">
+            <button class="button">AGREE</button>
+        </div>
+
+        <div class="media-body">
+<p>This website uses cookies to improve user experience. By clicking agree you consent to all cookies in accordance with our
+<a href="https://policies.google.com/privacy?hl=en-GB">Cookie Policy.</a>.</p>
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+var $$cookieDisclaimer = document.querySelector('.js-cookie-disclaimer');
+
+if (!localStorage.getItem('cookieDisclaimer')) {
+  $$cookieDisclaimer.classList.add('is-active');
+}
+
+$$cookieDisclaimer.querySelector('button').addEventListener('click', function() {
+  localStorage.setItem('cookieDisclaimer', true);
+  $$cookieDisclaimer.classList.remove('is-active');
+});
+
+
+</script>

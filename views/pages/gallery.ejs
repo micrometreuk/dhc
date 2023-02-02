@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head' ); %>
+</head>
+
+<body class="container">
+    <header>
+        <%- include('../partials/header' ); %>
+            <%- include('../partials/back' ); %>
+    </header>
+
+
+    <script>
+        var i;
+        for (i = 0; i < 14; i++) {
+            var containerDiv = document.createElement('div');
+            containerDiv.classList.add('container');
+            containerDiv.style.margin = '26px auto';
+            document.body.appendChild(containerDiv)
+            var mainDiv = document.createElement('div');
+            mainDiv.classList.add('row');
+            document.body.appendChild(mainDiv)
+            var div = document.createElement('div');
+            div.classList.add('row');
+            div.classList.add('d-flex');
+            div.classList.add('align-items-center');
+            document.body.appendChild(div)
+            var imagEdiv = document.createElement('div');
+            imagEdiv.classList.add('thumbnail');
+            document.body.appendChild(imagEdiv)
+            var newImage = document.createElement('img');
+            newImage.setAttribute('src', "img/gallery/" + (i + 1) + ".webp");
+            newImage.classList.add('img-fluid');
+            newImage.classList.add('img-thumbnail');
+            newImage.style.margin = '20px auto';
+            newImage.style.hight = '100%';
+            newImage.style.width = '100%';
+            newImage.setAttribute("alt", "Gallery photos");
+            newImage.setAttribute("id", "modalImg");
+            newImage.onclick = function () {
+            };
+            containerDiv.appendChild(mainDiv);
+            mainDiv.appendChild(div);
+            div.appendChild(imagEdiv);
+            imagEdiv.appendChild(newImage);
+        }
+
+    </script>
+
+
+
+    <footer>
+        <%- include('../partials/footer' ); %>
+    </footer>
+
+
+</body>
+
+</html>

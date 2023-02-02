@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head' ); %>
+</head>
+
+<style>
+    .parallax {
+        background-size: cover;
+    }
+
+    .parallax-1 {
+        background: url('/img/13.webp') repeat fixed 100%;
+        background-size: contain;
+    }
+
+    .parallax-inner {
+        padding-top: 2%;
+        padding-bottom: 1%;
+    }
+</style>
+
+<body class="container-fluid">
+    <header>
+        <%- include('../partials/header' ); %>
+            <%- include('../partials/back' ); %>
+    </header>
+    <main>
+        <section class="1">
+            <section class="parallax">
+                <div class="parallax-inner">
+                    <%- include('../partials/title' ); %>
+                        <%- include('../partials/statement' ); %>
+                            <%- include('../partials/moto' ); %>
+                                <div>
+                                </div>
+            </section>
+            <section class="parallax-1">
+                <div class="parallax-inner">
+                    <%- include('../partials/history' ); %>
+                </div>
+            </section>
+        </section>
+        <footer>
+            <%- include('../partials/footer' ); %>
+        </footer>
+    </main>
+</body>
+<html>
